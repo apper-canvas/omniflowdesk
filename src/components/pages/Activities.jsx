@@ -118,15 +118,15 @@ const Activities = () => {
     }
   }
   
-  const getContactName = (contactId) => {
+const getContactName = (contactId) => {
     const contact = contacts.find(c => c.Id === contactId)
-    return contact ? contact.name : 'Unknown Contact'
+    return contact ? (contact.Name || contact.name) : 'Unknown Contact'
   }
   
   const getDealTitle = (dealId) => {
     if (!dealId) return null
     const deal = deals.find(d => d.Id === dealId)
-    return deal ? deal.title : 'Unknown Deal'
+    return deal ? (deal.title || deal.Name) : 'Unknown Deal'
   }
   
   const getActivityIcon = (type) => {

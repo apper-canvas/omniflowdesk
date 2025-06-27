@@ -43,12 +43,17 @@ const Contacts = () => {
       return
     }
     
-    const filtered = contacts.filter(contact =>
-      contact.name?.toLowerCase().includes(query.toLowerCase()) ||
-      contact.email?.toLowerCase().includes(query.toLowerCase()) ||
-      contact.company?.toLowerCase().includes(query.toLowerCase()) ||
-      contact.tags?.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
-    )
+const filtered = contacts.filter(contact => {
+      const name = contact.Name || contact.name || ''
+      const email = contact.email || ''
+      const company = contact.company || ''
+      const tags = contact.Tags ? contact.Tags.split(',') : (contact.tags || [])
+      
+      return name.toLowerCase().includes(query.toLowerCase()) ||
+        email.toLowerCase().includes(query.toLowerCase()) ||
+        company.toLowerCase().includes(query.toLowerCase()) ||
+        tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+    })
     setFilteredContacts(filtered)
   }
   
@@ -166,14 +171,14 @@ const Contacts = () => {
         {viewingContact && (
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center shadow-lg">
+<div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center shadow-lg">
                 <span className="text-white font-bold text-xl">
-                  {viewingContact.name.charAt(0).toUpperCase()}
+                  {(viewingContact.Name || viewingContact.name || '?').charAt(0).toUpperCase()}
                 </span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 font-display">
-                  {viewingContact.name}
+<h3 className="text-2xl font-bold text-gray-900 font-display">
+                  {viewingContact.Name || viewingContact.name}
                 </h3>
                 <p className="text-gray-600 font-body">{viewingContact.company}</p>
               </div>
@@ -191,8 +196,8 @@ const Contacts = () => {
               
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Tags</h4>
-                <div className="flex flex-wrap gap-2">
-                  {viewingContact.tags?.map(tag => (
+<div className="flex flex-wrap gap-2">
+                  {(viewingContact.Tags ? viewingContact.Tags.split(',') : (viewingContact.tags || [])).map(tag => (
                     <span
                       key={tag}
                       className="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-sm"

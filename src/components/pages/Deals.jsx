@@ -49,12 +49,16 @@ const Deals = () => {
       return
     }
     
-    const filtered = deals.filter(deal => {
+const filtered = deals.filter(deal => {
       const contact = contacts.find(c => c.Id === deal.contactId)
+      const title = deal.title || deal.Name || ''
+      const contactName = contact ? (contact.Name || contact.name || '') : ''
+      const company = contact ? (contact.company || '') : ''
+      
       return (
-        deal.title?.toLowerCase().includes(query.toLowerCase()) ||
-        contact?.name?.toLowerCase().includes(query.toLowerCase()) ||
-        contact?.company?.toLowerCase().includes(query.toLowerCase())
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        contactName.toLowerCase().includes(query.toLowerCase()) ||
+        company.toLowerCase().includes(query.toLowerCase())
       )
     })
     setFilteredDeals(filtered)
@@ -172,8 +176,8 @@ const Deals = () => {
                 <h3 className="text-2xl font-bold text-gray-900 font-display">
                   {viewingDeal.title}
                 </h3>
-                <p className="text-gray-600 font-body">
-                  {contacts.find(c => c.Id === viewingDeal.contactId)?.name} - {' '}
+<p className="text-gray-600 font-body">
+                  {contacts.find(c => c.Id === viewingDeal.contactId)?.Name || contacts.find(c => c.Id === viewingDeal.contactId)?.name} - {' '}
                   {contacts.find(c => c.Id === viewingDeal.contactId)?.company}
                 </p>
               </div>

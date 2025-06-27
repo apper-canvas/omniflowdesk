@@ -144,16 +144,16 @@ const Dashboard = () => {
               Recent Contacts
             </h3>
             <div className="space-y-3">
-              {contacts.slice(0, 5).map((contact) => (
+{contacts.slice(0, 5).map((contact) => (
                 <div key={contact.Id} className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-semibold">
-                      {contact.name.charAt(0).toUpperCase()}
+                      {(contact.Name || contact.name || '?').charAt(0).toUpperCase()}
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">
-                      {contact.name}
+<p className="text-sm font-medium text-gray-900 truncate">
+                      {contact.Name || contact.name}
                     </p>
                     <p className="text-xs text-gray-500 truncate">
                       {contact.company}
