@@ -1,6 +1,27 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const Loading = ({ type = 'default' }) => {
+  const [isViewportReady, setIsViewportReady] = useState(false)
+  
+  useEffect(() => {
+    // Ensure viewport is stable before rendering chart-related components
+    const checkViewport = () => {
+      if (document.readyState === 'complete' && window.innerWidth > 0 && window.innerHeight > 0) {
+        setIsViewportReady(true)
+      }
+    }
+    
+    checkViewport()
+    window.addEventListener('load', checkViewport)
+    window.addEventListener('resize', checkViewport)
+    
+    return () => {
+      window.removeEventListener('load', checkViewport)
+      window.removeEventListener('resize', checkViewport)
+    }
+  }, [])
+  
   if (type === 'table') {
     return (
       <div className="space-y-4 animate-pulse">
@@ -37,13 +58,17 @@ const Loading = ({ type = 'default' }) => {
     )
   }
 
-  return (
+return (
     <div className="flex flex-col items-center justify-center py-12 space-y-4">
-      <motion.div
-        className="w-16 h-16 border-4 border-primary-200 border-t-primary-500 rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-      />
+      {isViewportReady ? (
+        <motion.div
+          className="w-16 h-16 border-4 border-primary-200 border-t-primary-500 rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+        />
+      ) : (
+        <div className="w-16 h-16 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin"></div>
+      )}
       <div className="text-center space-y-2">
         <div className="h-6 bg-gradient-to-r from-primary-200 to-secondary-200 rounded w-32 mx-auto animate-pulse"></div>
         <div className="h-4 bg-gradient-to-r from-slate-200 to-slate-300 rounded w-48 mx-auto animate-pulse"></div>
