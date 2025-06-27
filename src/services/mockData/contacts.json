@@ -1,0 +1,90 @@
+[
+  {
+    "Id": 1,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@techcorp.com",
+    "phone": "+1 (555) 123-4567",
+    "company": "TechCorp Solutions",
+    "status": "Active",
+    "tags": ["Enterprise", "Technology", "Decision Maker"],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "lastContact": "2024-01-20T14:45:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Michael Chen",
+    "email": "m.chen@innovatedesign.co",
+    "phone": "+1 (555) 987-6543",
+    "company": "Innovate Design Co",
+    "status": "Active",
+    "tags": ["Design", "Creative", "Small Business"],
+    "createdAt": "2024-01-10T09:15:00Z",
+    "lastContact": "2024-01-18T11:20:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Emily Rodriguez",
+    "email": "emily.rodriguez@globalmart.com",
+    "phone": "+1 (555) 456-7890",
+    "company": "GlobalMart Inc",
+    "status": "Prospect",
+    "tags": ["Retail", "E-commerce", "Growth Stage"],
+    "createdAt": "2024-01-12T16:00:00Z",
+    "lastContact": null
+  },
+  {
+    "Id": 4,
+    "name": "David Park",
+    "email": "david@startupventure.io",
+    "phone": "+1 (555) 321-0987",
+    "company": "Startup Venture",
+    "status": "Active",
+    "tags": ["Startup", "Tech", "Funding"],
+    "createdAt": "2024-01-08T13:45:00Z",
+    "lastContact": "2024-01-19T10:15:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Jennifer Lee",
+    "email": "j.lee@consulting.pro",
+    "phone": "+1 (555) 654-3210",
+    "company": "Pro Consulting Group",
+    "status": "Inactive",
+    "tags": ["Consulting", "Professional Services"],
+    "createdAt": "2024-01-05T11:30:00Z",
+    "lastContact": "2024-01-12T15:30:00Z"
+  },
+  {
+    "Id": 6,
+    "name": "Robert Wilson",
+    "email": "robert.wilson@manufacturing.com",
+    "phone": "+1 (555) 789-0123",
+    "company": "Wilson Manufacturing",
+    "status": "Active",
+    "tags": ["Manufacturing", "Industrial", "Traditional"],
+    "createdAt": "2024-01-14T08:20:00Z",
+    "lastContact": "2024-01-21T09:45:00Z"
+  },
+  {
+    "Id": 7,
+    "name": "Lisa Thompson",
+    "email": "lisa@healthtech.solutions",
+    "phone": "+1 (555) 234-5678",
+    "company": "HealthTech Solutions",
+    "status": "Prospect",
+    "tags": ["Healthcare", "Technology", "Innovation"],
+    "createdAt": "2024-01-16T14:10:00Z",
+    "lastContact": null
+  },
+  {
+    "Id": 8,
+    "name": "James Anderson",
+    "email": "james.anderson@finance.group",
+    "phone": "+1 (555) 567-8901",
+    "company": "Anderson Finance Group",
+    "status": "Active",
+    "tags": ["Finance", "Investment", "High Value"],
+    "createdAt": "2024-01-11T12:25:00Z",
+    "lastContact": "2024-01-17T16:20:00Z"
+  }
+]
